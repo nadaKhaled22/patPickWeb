@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Title for the HTML document -->
+    <title>Cat-Dog Prediction Result</title>
+
+    <!-- Set the character set to UTF-8 -->
+    <meta charset="UTF-8">
+
+    <!-- Link to an external stylesheet (style.css) for styling -->
+    <link href="static/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Center the content within the body -->
+    <center>
+
+        <!-- Container with a class 'cont' for styling -->
+        <div class='cont'>
+            
+            <!-- Display predicted result based on the probability threshold -->
+            {% if prediction_probability > 0.50 %}
+            <!-- Heading 1 indicating a dog prediction -->
+            <h1>I think it's a dog</h1>
+            {% else %}
+            <!-- Heading 1 indicating a cat prediction -->
+            <h1>Looks like a cat</h1>
+            {% endif %}
+
+        </div>
+
+        <!-- Display accuracy and probabilities for cat and dog -->
+        <h1>Accuracy<br> Cat: <span>{{ cat_probability }}</span> <br>Dog: <span>{{ dog_probability }}</span><br> </h1>
+
+        <!-- Display the image predicted -->
+        <img src="{{ url_for('load_img') }}" alt='Predicted Image'>
+
+        <!-- Link to go back to the main page with a class 'btn' for styling -->
+        <a href="/" class='btn'>Go back</a>
+
+    </center>
+
+</body>
+
+</html>
